@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento de Trámite - MINEDU</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="path/to/gob-pe-logo.png" alt="Logo de gob.pe">
+                <span>MINEDU en línea</span>
+            </div>
+            <div class="header-controls">
+                </div>
+        </div>
+    </header>
+
+    <nav class="user-info-bar">
+        <div class="user-info-content">
+            <p>Bienvenido(a), GONZALO LEONEL RAMOS MINAYA. Último acceso: miércoles, 18 de junio de 2025</p>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="nav-item">
+                        <a href="index.html"><i class="fas fa-home"></i> INICIO</a>
+                    </li>
+                    <li class="nav-section">MESA DE PARTES</li>
+                    <li class="nav-item">
+                        <a href="nuevo-tramite.html"><i class="fas fa-file-alt"></i> Nuevo Trámite</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="reingresar-tramite.html"><i class="fas fa-redo-alt"></i> Reingreso Trámite</a>
+                    </li>
+     
+                    </li>
+                    <li class="nav-section">SEGUIMIENTO TRÁMITE</li>
+                    <li class="nav-item active">
+                        <a href="seguimiento-tramite.html"><i class="fas fa-search"></i> SEGUIMIENTO TRÁMITE</a>
+                    </li>
+                
+                    </li>
+                </ul>
+            </nav>
+           
+        </aside>
+
+        <section class="content-area">
+            <h1>Seguimiento de trámite</h1>
+            <p>Buscar por número de expediente o rango de fechas</p>
+
+            <form class="seguimiento-form">
+                <div class="form-section">
+                    <div class="form-row">
+                        <div class="form-group flex-fill">
+                            <label for="seleccionarEntidadBusqueda">Seleccionar entidad</label>
+                            <select id="seleccionarEntidadBusqueda" name="seleccionarEntidadBusqueda">
+                                <option value="">-- Seleccionar --</option>
+                                <option value="minedu">Ministerio de Educación</option>
+                                </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row form-row-grid-2-search">
+                        <div class="form-group">
+                            <label for="numeroExpedienteBusqueda">Número de expediente</label>
+                            <input type="text" id="numeroExpedienteBusqueda" name="numeroExpedienteBusqueda">
+                            <p class="example-link">
+                                <a href="#" id="verEjemploLinkBusqueda">HACER CLIC, PARA VER UN EJEMPLO</a>
+                            </p>
+                        </div>
+                        <div class="form-group checkbox-group third-party-checkbox">
+                            <input type="checkbox" id="expedientesTerceros" name="expedientesTerceros">
+                            <label for="expedientesTerceros">Expedientes presentados a nombre de terceros (persona natural o persona jurídica)</label>
+                        </div>
+                    </div>
+
+                    <div class="form-row form-row-grid-2">
+                        <div class="form-group date-input-group">
+                            <label for="fechaInicio">Fecha Inicio (dd/mm/yyyy)</label>
+                            <input type="date" id="fechaInicio" name="fechaInicio" placeholder="DD/MM/YYYY">
+                        </div>
+                        <div class="form-group date-input-group">
+                            <label for="fechaFin">Fecha fin (dd/mm/yyyy)</label>
+                            <input type="date" id="fechaFin" name="fechaFin" placeholder="DD/MM/YYYY">
+                        </div>
+                    </div>
+
+                    <div class="form-actions search-actions">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Buscar</button>
+                        <button type="button" class="btn btn-secondary">Mostrar todos</button>
+                    </div>
+                </div>
+
+                <div class="form-section search-results-section" id="searchResults" style="display: none;">
+                    <div id="results-content">
+                        </div>
+                </div>
+
+                <div class="form-section detalle-expediente-section" id="detalleExpedienteSection" style="display: none;">
+                    <h3><span id="detalleTitle"></span> <span id="detalleExpedienteNumero"></span></h3>
+                    <button type="button" class="btn btn-secondary btn-close-details" id="closeDetalleBtn">Cerrar</button>
+                    
+                    <div class="detalle-grid">
+                        <div class="detalle-info" id="detalleInfoContainer">
+                            <h4>Información del Trámite</h4>
+                            <p><strong>Entidad de destino:</strong> <span id="detalleEntidad"></span></p>
+                            <p><strong>Oficina de destino:</strong> <span id="detalleOficina"></span></p>
+                            <p><strong>Tipo de documento:</strong> <span id="detalleTipoDocumento"></span></p>
+                            <p><strong>Número de documento:</strong> <span id="detalleNumeroDocumento"></span></p>
+                            <p><strong>Asunto:</strong> <span id="detalleAsunto"></span></p>
+                            <p><strong>Comentarios:</strong> <span id="detalleComentarios"></span></p>
+                            <p><strong>Fecha de Ingreso:</strong> <span id="detalleFechaCreacion"></span></p>
+                            <p><strong>Estado:</strong> <span id="detalleEstado"></span></p>
+                        </div>
+                        <div class="adjuntos-info" id="adjuntosInfoContainer">
+                            <h4>Documentos Adjuntos</h4>
+                            <ul id="listaAdjuntos">
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

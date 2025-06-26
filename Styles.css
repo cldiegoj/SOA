@@ -1,0 +1,855 @@
+/* ======================================= */
+/*                                       */
+/*                 GLOBAL STYLES         */
+/*                                       */
+/* ======================================= */
+
+/* Variables CSS para colores y espaciado */
+:root {
+    --primary-red: #D90000;
+    --secondary-gray: #EEE;
+    --light-gray-text: #666;
+    --dark-gray-text: #333;
+    --border-color: #DDD;
+    --sidebar-bg: #F8F8F8;
+    --active-link-bg: #E0E0E0;
+    --card-border: #CCC;
+
+    --padding-small: 10px;
+    --padding-medium: 15px;
+    --padding-large: 20px;
+    --margin-small: 10px;
+    --margin-medium: 15px;
+    --margin-large: 20px; /* MODIFICADO: Añadí esta variable para consistencia */
+}
+
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-gray-text);
+    background-color: var(--secondary-gray);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ======================================= */
+/*                                       */
+/*               LAYOUT BASE           */
+/*                                       */
+/* ======================================= */
+
+/* Cabecera Principal */
+.main-header {
+    background-color: var(--primary-red);
+    color: white;
+    padding: var(--padding-medium) var(--padding-large);
+}
+
+.main-header .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-header .logo {
+    display: flex;
+    align-items: center;
+}
+
+.main-header .logo img {
+    height: 30px;
+    margin-right: var(--margin-small);
+}
+
+.main-header .logo span {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Barra de información del usuario */
+.user-info-bar {
+    background-color: #F0F0F0;
+    padding: var(--padding-small) var(--padding-large);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.user-info-bar .user-info-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 0.9em;
+    color: var(--light-gray-text);
+}
+
+/* Contenedor Principal (Sidebar + Contenido) */
+.main-container {
+    display: flex;
+    flex-grow: 1;
+    max-width: 1200px;
+    margin: var(--margin-medium) auto;
+    background-color: #FFF;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    padding: var(--padding-medium);
+    border-right: 1px solid var(--border-color);
+    background-color: var(--sidebar-bg);
+    flex-shrink: 0;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+}
+
+.sidebar-nav li {
+    margin-bottom: 5px;
+}
+
+.sidebar-nav .nav-section {
+    font-weight: bold;
+    color: var(--dark-gray-text);
+    margin-top: var(--margin-medium);
+    margin-bottom: var(--margin-small);
+    padding-left: var(--padding-small);
+}
+
+.sidebar-nav .nav-item a {
+    display: block;
+    padding: var(--padding-small) var(--padding-medium);
+    text-decoration: none;
+    color: var(--dark-gray-text);
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-nav .nav-item a:hover,
+.sidebar-nav .nav-item.active a {
+    background-color: var(--active-link-bg);
+}
+
+.sidebar-nav .nav-item i {
+    margin-right: var(--margin-small);
+    width: 20px;
+    text-align: center;
+}
+
+.sidebar-footer {
+    margin-top: var(--padding-large);
+    font-size: 0.85em;
+    color: var(--light-gray-text);
+}
+
+.sidebar-footer a {
+    color: var(--light-gray-text);
+    text-decoration: none;
+}
+
+/* Área de Contenido Principal */
+.content-area {
+    flex-grow: 1;
+    padding: var(--padding-large);
+}
+
+.content-area h1 {
+    font-size: 1.8em;
+    margin-bottom: var(--margin-small);
+    color: var(--dark-gray-text);
+}
+
+/* NUEVO: Texto introductorio en la página de inicio (index.html) */
+.intro-text {
+    margin-bottom: var(--margin-large);
+    font-size: 1.05em;
+    color: var(--dark-gray-text);
+}
+
+
+/* ======================================= */
+/*                                       */
+/*                 COMPONENTS           */
+/*                                       */
+/* ======================================= */
+
+/* MODIFICADO: Botones Generales */
+.btn {
+    padding: var(--padding-small) var(--padding-medium);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* NUEVO: Asegura que los <a> con clase btn no tengan subrayado */
+    justify-content: center; /* NUEVO: Centra el contenido del botón */
+}
+
+.btn-secondary {
+    background-color: #F0F0F0;
+    color: var(--dark-gray-text);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    background-color: #E0E0E0;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* NUEVO: Estilo para el botón de información (Descargar Entidades) */
+.btn-info {
+    background-color: #17a2b8; /* Un azul cian */
+    color: white;
+}
+.btn-info:hover {
+    background-color: #138496;
+}
+
+/* NUEVO: Contenedor para botones de acción superiores (página de inicio) */
+.action-buttons-top {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: var(--margin-large);
+    gap: var(--margin-small); /* Asegura el espacio si hay varios botones */
+}
+
+/* MODIFICADO: Contenedor para botones de acción generales (como en mesa-de-partes.html) */
+.action-buttons {
+    display: flex;
+    justify-content: flex-end; /* Alinear a la derecha */
+    gap: var(--margin-small);
+    margin-bottom: var(--margin-large);
+}
+
+/* Tarjetas (cards) - Usadas en index.html y mesa-de-partes.html */
+/* MODIFICADO: Ajuste de minmax para que se vea bien con 2 o 3 tarjetas */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--margin-large);
+    margin-top: var(--margin-large);
+}
+
+.card {
+    background-color: #FFF;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: var(--padding-large);
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+    font-size: 4em;
+    color: #007bff; /* Color azul por defecto para íconos de tarjeta */
+    margin-bottom: var(--margin-medium);
+}
+/* MODIFICADO: Colores específicos para íconos de tarjetas en mesa-de-partes.html */
+.card-icon .fa-file-circle-plus { color: #007bff; }
+.card-icon .fa-file-import { color: #FFA500; }
+.card-icon .fa-file-circle-check { color: #28a745; }
+/* NUEVO: Colores específicos para íconos de tarjetas en index.html */
+.card-icon .fa-user-tag,
+.card-icon .fa-mail-bulk {
+    color: #007bff;
+}
+
+.card-title {
+    font-size: 1.3em;
+    margin-bottom: var(--margin-small);
+    color: var(--dark-gray-text);
+}
+
+.card-description {
+    font-size: 0.9em;
+    color: var(--light-gray-text);
+}
+
+
+/* ======================================= */
+/*                                       */
+/*             FORMULARIO STYLES       */
+/*                                       */
+/* ======================================= */
+
+/* NUEVO: Nota de campos obligatorios */
+.required-fields-note {
+    font-size: 0.75em;
+    color: #999;
+    font-weight: normal;
+    margin-left: 10px;
+}
+
+/* NUEVO: Contenedor principal del formulario */
+.tramite-form,
+.seguimiento-form { /* MODIFICADO: Aplicado también a formularios de seguimiento */
+    padding-top: var(--padding-medium);
+}
+
+/* NUEVO: Secciones dentro del formulario */
+.form-section {
+    background-color: #FFF;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: var(--padding-large);
+    margin-bottom: var(--margin-large);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* NUEVO: Estilos para los encabezados de sección */
+.form-section h3 {
+    font-size: 1.2em;
+    margin-bottom: var(--margin-medium);
+    padding-bottom: var(--padding-small);
+    border-bottom: 1px solid var(--border-color);
+    color: var(--dark-gray-text);
+}
+
+/* NUEVO: Estilos para los párrafos de descripción en el formulario */
+.form-section p {
+    font-size: 0.9em;
+    color: var(--light-gray-text);
+    margin-bottom: var(--margin-medium);
+}
+
+/* NUEVO: Contenedor para una fila de grupos de formulario */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--margin-medium);
+    margin-bottom: var(--margin-medium);
+}
+
+/* NUEVO: Estilo para cada grupo de formulario (label + input/select/textarea) */
+.form-group {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* NUEVO: Estilo para las etiquetas de los campos */
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: var(--dark-gray-text);
+}
+
+/* MODIFICADO: Estilo para inputs, selects y textareas */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="date"], /* MODIFICADO: Incluye input[type="date"] */
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: var(--padding-small);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1em;
+    color: var(--dark-gray-text);
+    background-color: #F8F8F8;
+    height: 38px; /* MODIFICADO: Altura fija para que todos los campos se vean igual */
+}
+
+/* NUEVO: Estilo específico para textareas */
+.form-group textarea {
+    resize: vertical;
+    height: auto; /* Anula la altura fija para textareas */
+}
+
+/* NUEVO: Estilo para campo de asunto principal que es readonly */
+textarea[readonly] {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    cursor: not-allowed;
+}
+
+/* NUEVO: Disposición de columnas para formularios (3 columnas) */
+.form-row-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--margin-medium);
+}
+/* NUEVO: Disposición de columnas para formularios (2 columnas generales) */
+.form-row-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--margin-medium);
+}
+
+/* NUEVO: Estilos específicos para la disposición de "Buscar Expediente" en Reingresar Trámite */
+.form-row-grid-2-custom {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--margin-medium);
+    align-items: end;
+}
+
+/* NUEVO: Ajuste para elementos de la grid custom */
+.form-row-grid-2-custom .flex-fill {
+    flex-grow: 1;
+}
+.form-row-grid-2-custom .flex-buttons {
+    display: flex;
+    gap: var(--margin-small);
+    align-items: flex-end;
+}
+
+/* NUEVO: Estilos específicos para la disposición de búsqueda de seguimiento */
+.form-row-grid-2-search {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--margin-medium);
+    align-items: end;
+    margin-bottom: var(--margin-medium);
+}
+
+/* NUEVO: Para el item "Descargar Entidades" y "No conozco" que están alineados a la derecha */
+.form-row-grid-3 .flex-item-right-aligned {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: var(--margin-small);
+    min-width: unset;
+}
+
+/* NUEVO: Checkbox sin label visible al lado (ej. "Sin número") */
+.checkbox-group.no-label-checkbox {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: unset;
+}
+.checkbox-group.no-label-checkbox label {
+    font-weight: normal;
+    margin-bottom: 0;
+    margin-left: 5px;
+}
+/* NUEVO: Checkbox de terceros en seguimiento de trámite */
+.third-party-checkbox {
+    align-items: center;
+}
+.third-party-checkbox label {
+    font-size: 0.9em;
+}
+
+/* NUEVO: Estilo para el contador de caracteres */
+.char-counter {
+    font-size: 0.8em;
+    color: var(--light-gray-text);
+    text-align: right;
+    margin-top: 5px;
+}
+
+/* NUEVO: Estilo para el enlace de ejemplo (HACER CLIC, PARA VER UN EJEMPLO) */
+.example-link {
+    font-size: 0.85em;
+    text-align: right;
+    margin-bottom: var(--margin-small);
+}
+.example-link a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.example-link a:hover {
+    text-decoration: underline;
+}
+
+/* NUEVO: Toggle Switch (Interruptor) */
+.toggle-switch-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.toggle-switch-container span {
+    font-size: 0.9em;
+    color: var(--dark-gray-text);
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+input:checked + .slider {
+    background-color: #2196F3;
+}
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+/* NUEVO: Upload Area (Documento Principal, Anexos) */
+.upload-area {
+    border: 1px dashed var(--border-color);
+    padding: var(--padding-medium);
+    margin-top: var(--margin-medium);
+    border-radius: 5px;
+    background-color: #FAFAFA;
+}
+.upload-area p, .upload-area ul {
+    font-size: 0.85em;
+    color: var(--light-gray-text);
+    margin-bottom: 5px;
+}
+.upload-area ul {
+    list-style-position: inside;
+    padding-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.upload-area ul li {
+    margin-bottom: 3px;
+}
+.upload-area .btn-primary {
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+.upload-area .file-name {
+    margin-left: 10px;
+    font-style: italic;
+    color: var(--dark-gray-text);
+    font-size: 0.9em;
+}
+
+/* NUEVO: Radio buttons */
+.radio-group input[type="radio"] {
+    margin-right: 5px;
+}
+.radio-group label {
+    font-weight: normal;
+    margin-bottom: 0;
+    font-size: 0.95em;
+}
+.radio-group > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.small-text {
+    font-size: 0.8em;
+    color: var(--light-gray-text);
+    margin-top: 5px;
+}
+.link-terms {
+    color: #007bff;
+    text-decoration: none;
+}
+.link-terms:hover {
+    text-decoration: underline;
+}
+
+/* NUEVO: Checkbox estándar */
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+.checkbox-group input[type="checkbox"] {
+    margin-top: 3px;
+    margin-right: 8px;
+}
+.checkbox-group label {
+    font-weight: normal;
+    font-size: 0.95em;
+    line-height: 1.4;
+}
+
+/* NUEVO: Captcha Section */
+.captcha-image {
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    background-color: #FDFDFD;
+    text-align: center;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.captcha-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* MODIFICADO: Grupo de input de fecha con icono */
+.date-input-group {
+    position: relative;
+    /* La altura del input es controlada por la regla general ahora */
+}
+/* MODIFICADO: Ocultamos el ícono manual, ya que ahora usamos el nativo */
+.date-input-group .calendar-icon {
+    display: none;
+}
+
+/* NUEVO: Estilos para la sección de detalles del expediente */
+.detalle-expediente-section {
+    background-color: #FFF;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: var(--padding-large);
+    margin-top: var(--margin-large);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: relative;
+}
+
+.detalle-expediente-section h3 {
+    margin-bottom: var(--margin-medium);
+}
+
+.detalle-expediente-section .btn-close-details {
+    position: absolute;
+    top: var(--padding-large);
+    right: var(--padding-large);
+}
+
+.detalle-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--margin-large);
+    margin-top: var(--margin-medium);
+}
+
+.detalle-info p {
+    font-size: 1em;
+    margin-bottom: 8px;
+}
+
+.detalle-info p strong {
+    color: var(--dark-gray-text);
+}
+
+.adjuntos-info h4 {
+    margin-bottom: var(--margin-small);
+}
+
+.adjuntos-info ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.adjuntos-info li a {
+    display: block;
+    padding: 5px 0;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.95em;
+    word-wrap: break-word;
+}
+
+.adjuntos-info li a:hover {
+    text-decoration: underline;
+}
+
+/* NUEVO: Botones de acción al final del formulario */
+/* MODIFICADO: Aplica a los formularios de Nuevo Trámite y Reingresar Trámite */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--margin-medium);
+    margin-top: var(--margin-large);
+    padding-top: var(--padding-medium);
+    border-top: 1px solid var(--border-color);
+}
+/* NUEVO: Botones de acción en la sección de búsqueda de Seguimiento de Trámite */
+.form-actions.search-actions {
+    justify-content: flex-start;
+    border-top: none;
+    padding-top: 0;
+    margin-bottom: var(--margin-large);
+}
+.form-actions.search-actions .btn {
+    min-width: 120px;
+}
+
+/* NUEVO: Estilos para la tarjeta de resultados de búsqueda (Seguimiento de Trámite) */
+.search-results-section {
+    background-color: #FFF;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: var(--padding-large);
+    margin-top: var(--margin-large);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.result-card {
+    border: 1px solid #CCC;
+    border-radius: 6px;
+    padding: var(--padding-medium);
+    margin-bottom: var(--margin-medium);
+    background-color: #FDFDFD;
+}
+.result-expediente {
+    font-weight: bold;
+    color: var(--dark-gray-text);
+    margin-bottom: 5px;
+}
+.result-ingreso,
+.result-asunto {
+    font-size: 0.9em;
+    color: var(--light-gray-text);
+    margin-bottom: 5px;
+}
+.result-actions {
+    margin-top: var(--margin-small);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.result-action-link {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+.result-action-link:hover {
+    text-decoration: underline;
+}
+.action-separator {
+    color: var(--light-gray-text);
+    font-size: 0.9em;
+}
+
+
+/* ======================================= */
+/*                                       */
+/*             RESPONSIVE STYLES       */
+/*                                       */
+/* ======================================= */
+
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        margin: var(--margin-small);
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    /* MODIFICADO: Ajuste para botones de acción generales (Regresar, Ir a MINEDU) */
+    .action-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    /* NUEVO: Ajuste para botones de acción superiores (página de inicio) */
+    .action-buttons-top {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .main-header .header-content,
+    .user-info-bar .user-info-content {
+        padding: 0 var(--padding-small);
+    }
+
+    /* MODIFICADO: Responsive para formularios - Consolidado */
+    .form-row-grid-3,
+    .form-row-grid-2,
+    .form-row-grid-2-custom,
+    .form-row-grid-2-search {
+        grid-template-columns: 1fr;
+    }
+    .form-row-grid-3 .flex-item-right-aligned {
+        align-items: flex-start;
+    }
+    .checkbox-group.no-label-checkbox {
+        justify-content: flex-start;
+    }
+    .form-row-grid-2-custom .flex-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    /* NUEVO: Ajuste para el checkbox de terceros en móvil */
+    .form-row-grid-2-search .third-party-checkbox {
+        justify-content: flex-start;
+    }
+    /* NUEVO: Ajuste para los botones de búsqueda en móvil */
+    .form-actions.search-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* MODIFICADO: Responsividad para la sección de detalles */
+    .detalle-grid {
+        grid-template-columns: 1fr; /* Apilar las columnas en móvil */
+    }
+    .detalle-expediente-section .btn-close-details {
+        position: static;
+        margin-top: var(--margin-medium);
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header .logo span {
+        font-size: 1em;
+    }
+}
