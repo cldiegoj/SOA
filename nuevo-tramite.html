@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuevo Trámite - MINEDU</title>
+    <title>Nuevo Trámite - OSIPTEL</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
     <header class="main-header">
         <div class="header-content">
             <div class="logo">
-                <img src="path/to/gob-pe-logo.png" alt="Logo de gob.pe">
-                <span>MINEDU en línea</span>
+                <img src="/img/logo.svg" alt="Logo de gob.pe">
+                <span>OSIPTEL en línea</span>
             </div>
             <div class="header-controls">
-                </div>
+            </div>
         </div>
     </header>
 
@@ -32,23 +34,29 @@
                     <li class="nav-item">
                         <a href="index.html"><i class="fas fa-home"></i> INICIO</a>
                     </li>
-                    <li class="nav-section">MESA DE PARTES</li>
+                    <li class="nav-section">SERVICIOS DOCUMENTALES</li>
+                    <li class="nav-item">
+                        <a href="mesa-de-partes.html"><i class="fas fa-file-alt"></i> Mesa de partes</a>
+                    </li>
                     <li class="nav-item active">
                         <a href="nuevo-tramite.html"><i class="fas fa-file-alt"></i> Nuevo Trámite</a>
                     </li>
                     <li class="nav-item">
                         <a href="reingresar-tramite.html"><i class="fas fa-redo-alt"></i> Reingreso Trámite</a>
                     </li>
-                    
-                    </li>
+
                     <li class="nav-section">SEGUIMIENTO TRÁMITE</li>
                     <li class="nav-item">
-                        <a href="seguimiento-tramite.html"><i class="fas fa-search"></i> SEGUIMIENTO TRÁMITE</a>
+                        <a href="seguimiento-tramite.html"><i class="fas fa-search"></i> Seguimiento trámite</a>
                     </li>
-                    
+                    <li class="nav-section">SERVICIOS COMPLEMENTARIOS</li>
+                    <li class="nav-item">
+                        <a href="#"><i class="fas fa-search"></i> Consulta de IMEI</a>
+                    </li>
+                </ul>
                 </ul>
             </nav>
-            
+
         </aside>
 
         <section class="content-area">
@@ -64,14 +72,14 @@
                             <select id="entidadDestino" name="entidadDestino" required>
                                 <option value="">-- Seleccionar --</option>
                                 <option value="minedu">Ministerio de Educación</option>
-                                </select>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="oficinaDestino">Oficina de destino *</label>
                             <select id="oficinaDestino" name="oficinaDestino" required>
                                 <option value="">-- Seleccionar --</option>
                                 <option value="general">Mesa de Partes General</option>
-                                </select>
+                            </select>
                         </div>
                         <div class="form-group flex-item-right-aligned">
                             <button type="button" class="btn btn-info">Descargar Entidades</button>
@@ -92,7 +100,7 @@
                                 <option value="">-- Seleccionar --</option>
                                 <option value="solicitud">Solicitud</option>
                                 <option value="informe">Informe</option>
-                                </select>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="numeroDocumento">Número de documento *</label>
@@ -115,7 +123,8 @@
                         <div class="form-group full-width">
                             <label for="comentarios">Comentarios</label>
                             <textarea id="comentarios" name="comentarios" rows="4" maxlength="500"></textarea>
-                            <p class="char-counter">0 caracter(es) ingresado(s) - 500 caracteres permitidos en los comentarios</p>
+                            <p class="char-counter">0 caracter(es) ingresado(s) - 500 caracteres permitidos en los
+                                comentarios</p>
                         </div>
                     </div>
 
@@ -134,11 +143,14 @@
                                 <p>Consideraciones para seleccionar el documento principal:</p>
                                 <ul>
                                     <li>Cargar solo (01) archivo digital</li>
-                                    <li>Solo se permiten las extensiones: .JPG, .JPEG, .PNG, .DOC, .DOCX, .XLS, .XLSX y .PDF.</li>
+                                    <li>Solo se permiten las extensiones: .JPG, .JPEG, .PNG, .DOC, .DOCX, .XLS, .XLSX y
+                                        .PDF.</li>
                                     <li>El tamaño máximo permitido es de 40 MB.</li>
                                 </ul>
-                                <input type="file" id="selectArchivoPrincipal" name="archivoPrincipal" accept=".jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx,.pdf" style="display: none;">
-                                <button type="button" class="btn btn-primary" id="btnSelectArchivoPrincipal">SELECCIONAR ARCHIVO</button>
+                                <input type="file" id="selectArchivoPrincipal" name="archivoPrincipal"
+                                    accept=".jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx,.pdf" style="display: none;">
+                                <button type="button" class="btn btn-primary" id="btnSelectArchivoPrincipal">SELECCIONAR
+                                    ARCHIVO</button>
                                 <span id="fileNamePrincipal" class="file-name"></span>
                             </div>
                         </div>
@@ -163,7 +175,8 @@
 
                 <div class="form-section">
                     <h3>3. Autorización de notificación</h3>
-                    <p>Autorizo al Ministerio de Educación a realizar la notificación electrónica del acto, decisión o actuación administrativa (respuesta) al:</p>
+                    <p>Autorizo al Ministerio de Educación a realizar la notificación electrónica del acto, decisión o
+                        actuación administrativa (respuesta) al:</p>
                     <div class="radio-group">
                         <input type="radio" id="correoElectronico" name="tipoNotificacion" value="correo" checked>
                         <label for="correoElectronico">Correo electrónico</label><br>
@@ -175,11 +188,13 @@
 
                     <div class="checkbox-group">
                         <input type="checkbox" id="leidoTerminos" name="leidoTerminos" required>
-                        <label for="leidoTerminos">He leído los términos y condiciones para el registro y uso de la Mesa de Partes Digital.</label>
+                        <label for="leidoTerminos">He leído los términos y condiciones para el registro y uso de la Mesa
+                            de Partes Digital.</label>
                     </div>
                     <div class="checkbox-group">
                         <input type="checkbox" id="declaracionJurada" name="declaracionJurada" required>
-                        <label for="declaracionJurada">Los datos ingresados en el presente formulario tienen carácter de Declaración Jurada.</label>
+                        <label for="declaracionJurada">Los datos ingresados en el presente formulario tienen carácter de
+                            Declaración Jurada.</label>
                     </div>
                 </div>
 
@@ -208,4 +223,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
